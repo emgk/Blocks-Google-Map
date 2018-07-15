@@ -9,3 +9,10 @@ import PlacesAutocomplete, {
     getLatLng,
 } from 'react-places-autocomplete';
 
+/**
+ * Code contains for edit action.
+ * 
+ * @since 1.0.0.
+ */
+export class edit extends Component {
+}
