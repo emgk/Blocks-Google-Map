@@ -15,4 +15,14 @@ import PlacesAutocomplete, {
  * @since 1.0.0.
  */
 export class edit extends Component {
+    constructor(props) {
+        super(...arguments);
+
+        this.state = {
+            address: this.props.attributes.address,
+            latitute: this.props.attributes.latitute,
+            longitude: this.props.attributes.longitude,
+            tipImage: this.props.attributes.tip || "tip-1"
+        };
+    }
 }
