@@ -25,4 +25,118 @@ export class edit extends Component {
             tipImage: this.props.attributes.tip || "tip-1"
         };
     }
+
+    /**
+     * When change the address, change it in state too.
+     * 
+     * @since 1.0.0
+     */
+    handleWhenAddressChange(address) {
+        this.setState({ address });
+    }
+
+    /**
+     * Get the geo location code when choose then Place.
+     * 
+     * @since 1.0.0
+     */
+    handleChoosePlace(address) {
+        const { setAttributes } = this.props;
+
+        // Get geo code by selected address.
+        geocodeByAddress(address)
+            .then(results => {
+
+                // Set the formatted address.
+                this.setState({ address: results[0].formatted_address });
+                setAttributes({ address: results[0].formatted_address });
+
+                // Get the co-ordinate of the map.
+                getLatLng(results[0])
+                    .then(coordinate => {
+                        let mapOrigin = {
+                            latitute: coordinate.lat,
+                            longitude: coordinate.lng,
+                        };
+
+                        this.setState(mapOrigin);
+
+                        // Chnage the attirbute's values.
+                        setAttributes(mapOrigin);
+                    });
+
+            })
+            .catch(err => console.error('Error', err));
+    }
+    render() {
+        return (
+            <Fragment>
+                <div className="gutenberg-map">
+                    <div className="gutenberg-map-field-title">
+                        {
+                            typeof this.state.latitute === "number"
+                                && typeof this.state.longitude === "number"
+                                ?
+                                <div style={{ width: '100%', height: '250px' }}>
+                                    {console.log(this.state.address)}
+                                    <GoogleMapContainer lat={this.state.latitute} lng={this.state.longitude} address={this.state.address} tipImage={this.state.tipImage} />
+                                </div>
+                                : <div className="place-select-container" style={{ width: '100%', height: '250px' }}>
+                                    <PlacesAutocomplete
+                                        value={this.state.address}
+                                        onChange={this.handleWhenAddressChange.bind(this)}
+                                        onSelect={this.handleChoosePlace.bind(this)}
+                                    >
+                                        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+                                            <div>
+                                                <input
+                                                    {...getInputProps({
+                                                        placeholder: 'Enter your location',
+                                                        className: 'gutenberg-map-location-search-input',
+                                                    })}
+                                                />
+                                                <div className="autocomplete-dropdown-container">
+                                                    {loading && <div>Loading...</div>}
+                                                    {suggestions.map(suggestion => {
+                                                        const className = suggestion.active
+                                                            ? 'suggestion-item--active'
+                                                            : 'suggestion-item';
+                                                        // inline style for demonstration purpose
+                                                        const style = suggestion.active
+                                                            ? { backgroundColor: '#fafafa', cursor: 'pointer' }
+                                                            : { backgroundColor: '#ffffff', cursor: 'pointer' };
+                                                        return (
+                                                            <div
+                                                                {...getSuggestionItemProps(suggestion, {
+                                                                    className,
+                                                                    style,
+                                                                })}
+                                                            >
+                                                                <span>{suggestion.description}</span>
+                                                            </div>
+                                                        );
+                                                    })}
+                                                </div>
+                                            </div>
+                                        )}
+                                    </PlacesAutocomplete>
+                                </div>
+                        }
+                    </div>
+                </div>
+
+                <InspectorControls>
+                    <PanelBody
+                        title={[
+                            <span className="components-panel__color-title" key="title">Map Marker</span>,
+                            <img src={gutenbergMap.tipImagesDir + this.state.tipImage + '.png'} className="map-block-title-tip" />
+                        ]}
+                        initialOpen={false}
+                    >
+                        <MapMarker action={this.changeMarkerTip.bind(this)} />
+                    </PanelBody>
+                </InspectorControls>
+            </Fragment>
+        );
+    }
 }
