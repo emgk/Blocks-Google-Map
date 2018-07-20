@@ -49,6 +49,9 @@ class Gutenberg_Map{
             plugins_url('assets/css/style.css',__FILE__)
         );
 
+        wp_localize_script( 'gutenberg-map-block', 'googleMapScript',array(
+            'plugins_url' => plugin_dir_url(__FILE__),
+        ) );
     } 
 }
 
