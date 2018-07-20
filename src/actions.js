@@ -1,5 +1,5 @@
 const { Component, Fragment } = wp.element;
-const { PanelBody } = wp.components;
+const { SelectControl } = wp.components;
 const { InspectorControls } = wp.editor;
 const { __ } = wp.i18n;
 
@@ -22,6 +22,7 @@ export class edit extends Component {
             address: this.props.attributes.address,
             latitute: this.props.attributes.latitute,
             longitude: this.props.attributes.longitude,
+            maptype: this.props.attributes.maptype || 'm',
             tipImage: this.props.attributes.tip || "tip-1"
         };
     }
@@ -33,6 +34,22 @@ export class edit extends Component {
      */
     handleWhenAddressChange(address) {
         this.setState({ address });
+    }
+
+    /**
+     * Change the type of the map.
+     * 
+     * @since 1.0.0
+     * @param {*} maptype 
+     */
+    changeViewType(maptype) {
+        this.setState({
+            maptype
+        });
+
+        this.props.setAttributes({
+            maptype
+        });
     }
 
     /**
@@ -126,7 +143,19 @@ export class edit extends Component {
                 </div>
 
                 <InspectorControls>
-
+                    <SelectControl
+                        label={__('Map Type')}
+                        value={this.state.maptype}
+                        options={
+                            [
+                                { value: 'm', label: __('Normal') },
+                                { value: 'k', label: __('Satellite') },
+                                { value: 'h', label: __('Hybrid') },
+                                { value: 'p', label: __('Terrain') },
+                            ]
+                        }
+                        onChange={this.changeViewType.bind(this)}
+                    />
                 </InspectorControls>
             </Fragment>
         );
