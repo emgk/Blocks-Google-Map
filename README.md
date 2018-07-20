@@ -18,7 +18,9 @@ Currently this plugin isn't available on the WordPress.org, so you'll need to bu
 
 ## Demo
 
-[![Youtube-demo](https://img.youtube.com/vi/0KUTj_N1ES8/0.jpg)](https://www.youtube.com/watch?v=0KUTj_N1ES8)
+Click on the image below to watch video.
+
+[![Youtube-demo](https://user-images.githubusercontent.com/14994452/43012234-7dce08a4-8c63-11e8-84a9-3169a5a376c2.png)](https://www.youtube.com/watch?v=0KUTj_N1ES8)
 
 ## Contribute
 Please raise issue or sent Pull Request if you find any bugs in plugin.
