@@ -95,8 +95,7 @@ export class edit extends Component {
                                 && typeof this.state.longitude === "number"
                                 ?
                                 <div style={{ width: '100%', height: '250px' }}>
-                                    {console.log(this.state.address)}
-                                    <GoogleMapContainer lat={this.state.latitute} lng={this.state.longitude} address={this.state.address} tipImage={this.state.tipImage} />
+                                    <GoogleMapContainer lat={this.state.latitute} lng={this.state.longitude} address={this.state.address} maptype={this.state.maptype} />
                                 </div>
                                 : <div className="place-select-container" style={{ width: '100%', height: '250px' }}>
                                     <PlacesAutocomplete
@@ -168,12 +167,12 @@ export class edit extends Component {
  * @since 1.0.0
  * @param {} param
  */
-export const generateGoogleMapIframe = (lat, lag, address) => {
+export const generateGoogleMapIframe = (lat, lag, address, type) => {
     return (
         <iframe
             width="100%"
             height="100%"
-            src={`https://maps.google.com/maps?width=100%&height=600&hl=enq=''&q=${encodeURI(address)}&ll=${lat},${lag}&ie=UTF8&t=&z=14&iwloc=B&output=embed`}
+            src={`https://maps.google.com/maps?width=100%&height=600&hl=enq=''&q=${encodeURI(address)}&ll=${lat},${lag}&t=${type}&ie=UTF8&t=&z=14&iwloc=B&output=embed`}
             frameborder="0"
             scrolling="no"
             marginheight="0"

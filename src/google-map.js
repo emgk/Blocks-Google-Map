@@ -3,18 +3,11 @@ import { generateGoogleMapIframe } from './actions';
 
 export class GoogleMapContainer extends Component {
     constructor(props) {
-        super(...arguments);
-
-        this.state = {
-            lat: props.lat,
-            lng: props.lng,
-            address: props.address,
-            type: 'm'
-        };
+        super();
     }
 
     render() {
-        return generateGoogleMapIframe(this.state.lat, this.state.lng, this.state.address);
+        return generateGoogleMapIframe(this.props.lat, this.props.lng, this.props.address, this.props.maptype);
     }
 }
 

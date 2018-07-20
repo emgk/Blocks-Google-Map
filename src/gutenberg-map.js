@@ -2,7 +2,7 @@ const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 
 // Import actions.
-import { edit } from './actions';
+import { edit, generateGoogleMapIframe } from './actions';
 
 /**
  * Register the gutenberg map block inside the embed category.
