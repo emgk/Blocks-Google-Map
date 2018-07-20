@@ -25,21 +25,16 @@ registerBlockType('gutenberg-map-block/main-map-block', {
         },
         address: {
             type: "string"
+        },
+        maptype: {
+            type: "string"
         }
     },
     edit,
     save: props => {
         return (
             <div className={props.className}>
-                <iframe
-                    width="100%"
-                    height="500px"
-                    src={`https://maps.google.com/maps?width=100%&height=600&hl=enq=''&q=${encodeURI(props.attributes.address)}&ll=${props.attributes.latitute},${props.attributes.longitude}&ie=UTF8&t=&z=14&iwloc=B&output=embed`}
-                    frameborder="0"
-                    scrolling="no"
-                    marginheight="0"
-                    marginwidth="0"
-                ></iframe>
+                {generateGoogleMapIframe(props.attributes.latitute, props.attributes.longitude, props.attributes.address, props.attributes.maptype)}
             </div>
         )
     }
