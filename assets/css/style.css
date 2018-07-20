@@ -1,0 +1,90 @@
+.gutenberg-map {
+    background: #ecebeb;
+    color: #989898;
+    text-align: center;
+    padding: 1px;
+    font-size: 13px;
+    min-height: 200px;
+    vertical-align: middle;
+}
+
+.place{  
+    width: 40px;
+    padding: 20px;
+    border: 1px solid blue;
+    background: red;
+    color: yellow; 
+}
+
+.place-select-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+    min-height: 200px;
+    width: 100%;
+    text-align: center;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+    font-size: 13px;
+    background: hsl(0, 0%, 100%);
+}
+
+.gutenberg-map-location-search-input{
+    padding: 10px !important;
+    font-size: 15px !important;
+    width: 366px;
+    border: solid 1px lightgray;
+    border-radius: 4px;
+}
+
+.gutenberg-map-marker {
+    color: 'white';
+    background: 'grey';
+    padding: '15px 10px';
+    display: 'inline-flex';
+    textAlign: 'center';
+    alignItems: 'center';
+    justifyContent: 'center';
+    borderRadius: '100%';
+    transform: translate(-50%,-50%);
+}
+
+.gutenberg-map-tip{
+    width: 48px;
+    margin-top: -48px;
+    margin-left: -24px;
+    position: absolute;
+    top: 0;
+}
+
+.gutenberg-map-tip-select {
+    width: 82px;
+    text-align: center;
+    height: 82px;
+    border: solid 1px #d6d6d62e;
+    display: inline-block;
+    cursor: pointer;
+    padding: 14px;
+}
+
+img.gutenberg-map-tip-show {
+    width: 45px;
+    height: 45px;
+}
+
+.gutenberg-map-tip-select:hover {
+    background: #f3f3f3;
+    transition: 500ms linear;
+}
+
+.map-block-title-tip {
+    height: 17px;
+    width: 17px;
+    margin-left: 6px;
+}
+
+i.gutenberg-google-map-block-desc {
+    padding: 12px 0px;
+    display: inline-block;
+}

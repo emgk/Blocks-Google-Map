@@ -142,6 +142,9 @@ export class edit extends Component {
                 </div>
 
                 <InspectorControls>
+                    <i className="gutenberg-google-map-block-desc">
+                        {__('Customize the Maps as per your choice using the below options.')}
+                    </i>
                     <SelectControl
                         label={__('Map Type')}
                         value={this.state.maptype}
@@ -163,10 +166,10 @@ export class edit extends Component {
 
 /**
  * Generate iFrame for Google Map.
- * 
+ *
  * @since 1.0.0
- * @param {} param
- */
+* @param {} param
+        */
 export const generateGoogleMapIframe = (lat, lag, address, type) => {
     return (
         <iframe
