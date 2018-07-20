@@ -1,7 +1,7 @@
 <?php 
 /**
- * Plugin Name: Gutenberg Map
- * Description: Insert Map to your page through the gutenberg.
+ * Plugin Name: Gutenberg Google Map
+ * Description: Insert Goole Map to your post through the gutenberg.
  * Version: 1.0.0
  * Author: Govind Kumar
  * Author URI: http://emgk.github.io
