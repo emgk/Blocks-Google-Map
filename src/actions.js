@@ -1,9 +1,6 @@
 const { Component, Fragment } = wp.element;
-const { PanelBody, SelectControl, RangeControl } = wp.components;
-const { BlockControls,
-    BlockAlignmentToolbar,
-    InspectorControls,
-    RichText, } = wp.editor;
+const { SelectControl, IconButton } = wp.components;
+const { InspectorControls } = wp.editor;
 const { __ } = wp.i18n;
 
 import { GoogleMapContainer } from './google-map';
@@ -22,7 +19,7 @@ export class edit extends Component {
         super(...arguments);
 
         this.state = {
-            address: this.props.attributes.address,
+            address: this.props.attributes.address || '',
             latitute: this.props.attributes.latitute,
             longitude: this.props.attributes.longitude,
             maptype: this.props.attributes.maptype || 'm',
@@ -81,7 +78,7 @@ export class edit extends Component {
                             typeof this.state.latitute === "number"
                                 && typeof this.state.longitude === "number"
                                 ?
-                                <div style={{ width: '100%', height: '250px' }}>
+                                <div style={{ width: '100%', height: '420px' }}>
                                     <GoogleMapContainer lat={this.state.latitute} lng={this.state.longitude} address={this.state.address} maptype={this.state.maptype} />
                                 </div>
                                 : <div className="place-select-container" style={{ width: '100%', height: '250px' }}>
@@ -92,9 +89,10 @@ export class edit extends Component {
                                     >
                                         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
                                             <div>
+                                                {suggestions.length <= 0 && <img src={`${googleMapScript.plugins_url}/assets/images/google-maps.png`} className="gutenberg-map-plugin-logo" />}
                                                 <input
                                                     {...getInputProps({
-                                                        placeholder: 'Enter your location',
+                                                        placeholder: __('Enter your location'),
                                                         className: 'gutenberg-map-location-search-input',
                                                     })}
                                                 />
@@ -146,6 +144,27 @@ export class edit extends Component {
                             this.props.setAttributes({ maptype });
                         }}
                     />
+
+                    {(typeof this.state.latitute === "number") ?
+                        <div>
+                            <b>{__('Current Location:')}</b>
+                            <span className="gutenberg-map-current-location">
+                                {this.state.address}
+                            </span>
+                            <IconButton
+                                icon="location-alt"
+                                children={__("Change Location")}
+                                onClick={(event) => {
+                                    this.setState({
+                                        latitute: false,
+                                        longitude: false
+                                    })
+                                }}
+                            />
+                        </div>
+                        : ''
+                    }
+
                 </InspectorControls>
             </Fragment>
         );
@@ -162,7 +181,7 @@ export const generateGoogleMapIframe = (lat, lag, address, type) => {
     return (
         <iframe
             width="100%"
-            height="100%"
+            height="420px"
             src={`https://maps.google.com/maps?width=100%&height=600&hl=enq=''&q=${encodeURI(address)}&ll=${lat},${lag}&t=${type}&ie=UTF8&t=&z=14&iwloc=B&output=embed`}
             frameborder="0"
             scrolling="no"

@@ -30,12 +30,12 @@
     background: hsl(0, 0%, 100%);
 }
 
-.gutenberg-map-location-search-input{
+.gutenberg-map-location-search-input {
     padding: 10px !important;
     font-size: 15px !important;
     width: 366px;
-    border: solid 1px lightgray;
-    border-radius: 4px;
+    border: solid 1px #fff5f5 !important;
+    border-radius: 1px;
 }
 
 .gutenberg-map-marker {
@@ -87,4 +87,15 @@ img.gutenberg-map-tip-show {
 i.gutenberg-google-map-block-desc {
     padding: 12px 0px;
     display: inline-block;
+}
+
+span.gutenberg-map-current-location {
+    display: inline-block;
+    padding: 6px 0px;
+}
+
+img.gutenberg-map-plugin-logo {
+    width: 220px;
+    display: -webkit-box;
+    margin: 0 auto;
 }
