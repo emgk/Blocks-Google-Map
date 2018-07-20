@@ -16,6 +16,10 @@ Currently this plugin isn't available on the WordPress.org, so you'll need to bu
 2. Run command `npm install` and then `npm run dev`
 3. Done! 
 
+## Demo
+
+[![Youtube-demo](https://img.youtube.com/vi/0KUTj_N1ES8/0.jpg)](https://www.youtube.com/watch?v=0KUTj_N1ES8)
+
 ## Contribute
 Please raise issue or sent Pull Request if you find any bugs in plugin.
 
