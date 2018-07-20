@@ -1,6 +1,9 @@
 const { Component, Fragment } = wp.element;
-const { SelectControl } = wp.components;
-const { InspectorControls } = wp.editor;
+const { PanelBody, SelectControl, RangeControl } = wp.components;
+const { BlockControls,
+    BlockAlignmentToolbar,
+    InspectorControls,
+    RichText, } = wp.editor;
 const { __ } = wp.i18n;
 
 import { GoogleMapContainer } from './google-map';
@@ -34,22 +37,6 @@ export class edit extends Component {
      */
     handleWhenAddressChange(address) {
         this.setState({ address });
-    }
-
-    /**
-     * Change the type of the map.
-     * 
-     * @since 1.0.0
-     * @param {*} maptype 
-     */
-    changeViewType(maptype) {
-        this.setState({
-            maptype
-        });
-
-        this.props.setAttributes({
-            maptype
-        });
     }
 
     /**
@@ -152,11 +139,12 @@ export class edit extends Component {
                             [
                                 { value: 'm', label: __('Normal') },
                                 { value: 'k', label: __('Satellite') },
-                                { value: 'h', label: __('Hybrid') },
-                                { value: 'p', label: __('Terrain') },
                             ]
                         }
-                        onChange={this.changeViewType.bind(this)}
+                        onChange={(maptype) => {
+                            this.setState({ maptype });
+                            this.props.setAttributes({ maptype });
+                        }}
                     />
                 </InspectorControls>
             </Fragment>
