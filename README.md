@@ -1,5 +1,6 @@
 # Gutenberg-Google-Maps
-![npm-versopm](https://img.shields.io/npm/v/npm.svg) ![WordPress](https://img.shields.io/wordpress/v/akismet.svg)
+![npm-versopm](https://img.shields.io/npm/v/npm.svg) 
+![WordPress](https://img.shields.io/wordpress/v/akismet.svg)
 
 Using this plugin you can add Google Map to your post.
 
