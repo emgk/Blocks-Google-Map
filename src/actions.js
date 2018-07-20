@@ -126,17 +126,29 @@ export class edit extends Component {
                 </div>
 
                 <InspectorControls>
-                    <PanelBody
-                        title={[
-                            <span className="components-panel__color-title" key="title">Map Marker</span>,
-                            <img src={gutenbergMap.tipImagesDir + this.state.tipImage + '.png'} className="map-block-title-tip" />
-                        ]}
-                        initialOpen={false}
-                    >
-                        <MapMarker action={this.changeMarkerTip.bind(this)} />
-                    </PanelBody>
+
                 </InspectorControls>
             </Fragment>
         );
     }
+}
+
+/**
+ * Generate iFrame for Google Map.
+ * 
+ * @since 1.0.0
+ * @param {} param
+ */
+export const generateGoogleMapIframe = (lat, lag, address) => {
+    return (
+        <iframe
+            width="100%"
+            height="100%"
+            src={`https://maps.google.com/maps?width=100%&height=600&hl=enq=''&q=${encodeURI(address)}&ll=${lat},${lag}&ie=UTF8&t=&z=14&iwloc=B&output=embed`}
+            frameborder="0"
+            scrolling="no"
+            marginheight="0"
+            marginwidth="0"
+        ></iframe>
+    )
 }
