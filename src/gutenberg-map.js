@@ -20,9 +20,6 @@ registerBlockType('gutenberg-map-block/main-map-block', {
         longitude: {
             type: "number"
         },
-        tip: {
-            type: "string"
-        },
         address: {
             type: "string"
         },
