@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name: Gutenberg Google Map
- * Description: Insert Google Map to your post through the gutenberg.
+ * Plugin Name: Blocks Google Map
+ * Description: Integrate Google Maps to your post content with Gutenberg.
  * Version: 1.0.0
  * Author: Govind Kumar
  * Author URI: http://emgk.github.io
