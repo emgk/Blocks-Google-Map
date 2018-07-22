@@ -45,9 +45,9 @@ class Gutenberg_Map {
 		// Register gutenberg map block.
 		wp_enqueue_script(
 			'gutenberg-map-block',
-			plugins_url( 'assets/blocks/gutenberg-map.js', __FILE__ ),
+			plugins_url( 'assets/blocks/blocks-google-maps.js', __FILE__ ),
 			array( 'wp-element', 'wp-blocks', 'wp-i18n', 'wp-components', 'wp-editor' ),
-			filemtime( plugin_dir_path( __FILE__ ) . 'assets/blocks/gutenberg-map.js' )
+			filemtime( plugin_dir_path( __FILE__ ) . 'assets/blocks/blocks-google-maps.js' )
 		);
 
 		// Register gutenberg map block.
