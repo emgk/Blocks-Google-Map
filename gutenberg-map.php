@@ -44,7 +44,7 @@ class Gutenberg_Map {
 
 		// Register gutenberg map block.
 		wp_enqueue_script(
-			'gutenberg-map-block',
+			'blocks-google-map',
 			plugins_url( 'assets/blocks/blocks-google-maps.js', __FILE__ ),
 			array( 'wp-element', 'wp-blocks', 'wp-i18n', 'wp-components', 'wp-editor' ),
 			filemtime( plugin_dir_path( __FILE__ ) . 'assets/blocks/blocks-google-maps.js' )
@@ -52,7 +52,7 @@ class Gutenberg_Map {
 
 		// Register gutenberg map block.
 		wp_enqueue_style(
-			'gutenberg-map-block',
+			'blocks-google-map',
 			plugins_url( 'assets/css/style.css', __FILE__ )
 		);
 
@@ -61,7 +61,7 @@ class Gutenberg_Map {
 			'https://maps.googleapis.com/maps/api/js?key=' . get_option( 'google_api_key' ) . '&libraries=places'
 		);
 
-		wp_localize_script( 'gutenberg-map-block', 'googleMapScript', array(
+		wp_localize_script( 'blocks-google-map', 'googleMapScript', array(
 			'plugins_url' => plugin_dir_url( __FILE__ ),
 		) );
 	}

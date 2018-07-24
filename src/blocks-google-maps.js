@@ -9,7 +9,7 @@ import { edit, generateGoogleMapIframe } from './actions';
  * 
  * @since 1.0.0.
  */
-registerBlockType('gutenberg-map-block/main-map-block', {
+registerBlockType('blocks-google-map/main-map-block', {
     title: __('Map'),
     icon: 'location',
     category: 'embed',
