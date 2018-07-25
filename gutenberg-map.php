@@ -56,11 +56,13 @@ class Gutenberg_Map {
 			plugins_url( 'assets/css/style.css', __FILE__ )
 		);
 
+		// Add the google maps script with API key.
 		wp_enqueue_script(
 			'gutenberg-google-map',
 			'https://maps.googleapis.com/maps/api/js?key=' . get_option( 'google_api_key' ) . '&libraries=places'
 		);
 
+		// Pass the variables to the block js file.
 		wp_localize_script( 'blocks-google-map', 'googleMapScript', array(
 			'plugins_url' => plugin_dir_url( __FILE__ ),
 		) );
