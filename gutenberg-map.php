@@ -74,7 +74,7 @@ class Gutenberg_Map {
 	 * @since 1.0.0
 	 */
 	public function register_menu_option() {
-		add_menu_page( __( 'Gutenberg Map', 'blocks-google-map' ), __( 'Google Map API', 'blocks-google-map' ), 'administrator', __FILE__, array(
+		add_menu_page( __( 'Blocks Google Map', 'blocks-google-map' ), __( 'Google Map API', 'blocks-google-map' ), 'administrator', __FILE__, array(
 			$this,
 			'register_map_option_page'
 		), 'dashicons-location' );
