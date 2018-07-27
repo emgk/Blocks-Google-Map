@@ -87,7 +87,7 @@ class Gutenberg_Map {
 	 */
 	public function register_setting_options() {
 		// Register google api setting.
-		register_setting( 'gutenberg-google-map-options', 'google_api_key' );
+		register_setting( 'blocks-google-maps-setting', 'google_api_key' );
 	}
 
 	/**
@@ -99,11 +99,11 @@ class Gutenberg_Map {
 
 		?>
         <div class="wrap">
-            <h1><?php echo __( 'Gutenberg Google Map API', 'blocks-google-map' ); ?></h1>
+            <h1><?php echo __( 'Blocks Google Map API', 'blocks-google-map' ); ?></h1>
 
             <form method="post" action="options.php">
-				<?php settings_fields( 'gutenberg-google-map-options' ); ?>
-				<?php do_settings_sections( 'gutenberg-google-map-options' ); ?>
+				<?php settings_fields( 'blocks-google-maps-setting' ); ?>
+				<?php do_settings_sections( 'blocks-google-maps-setting' ); ?>
                 <table class="form-table">
                     <tr valign="top">
                         <th scope="row"><?php echo __( 'Google Map API', 'blocks-google-map' ); ?></th>
