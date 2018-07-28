@@ -12,11 +12,11 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Class Gutenberg map.
+ * Class Blocks Google Maps.
  *
  * @since 1.0.0
  */
-class Gutenberg_Map {
+class Blocks_Google_Maps {
 
 	/**
 	 * Constructor function for the Gutenberg map.
@@ -26,7 +26,6 @@ class Gutenberg_Map {
 	public function __construct() {
 		add_action( 'enqueue_block_editor_assets', array( $this, 'register_assets_for_gutenberg_map' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_assets_for_gutenberg_map' ) );
-
 
 		// Create google map menu.
 		add_action( 'admin_menu', array( $this, 'register_menu_option' ) );
@@ -124,4 +123,4 @@ class Gutenberg_Map {
 
 }
 
-new Gutenberg_Map();
+new Blocks_Google_Maps();
