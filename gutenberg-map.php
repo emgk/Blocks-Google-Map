@@ -5,7 +5,7 @@
  * Version: 1.0.0
  * Author: Govind Kumar
  * Author URI: http://emgk.github.io
- * Text-Domain: gutenberg-map
+ * Text-Domain: blocks-google-map
  */
 
 // Exit if not defined.
@@ -72,7 +72,7 @@ class Gutenberg_Map {
 	 * @since 1.0.0
 	 */
 	public function register_menu_option() {
-		add_menu_page( __( 'Gutenberg Map', 'gutenberg-map' ), __( 'Google Map API', 'gutenberg-map' ), 'administrator', __FILE__, array(
+		add_menu_page( __( 'Gutenberg Map', 'blocks-google-map' ), __( 'Google Map API', 'blocks-google-map' ), 'administrator', __FILE__, array(
 			$this,
 			'register_map_option_page'
 		), 'dashicons-location' );
@@ -97,20 +97,20 @@ class Gutenberg_Map {
 
 		?>
         <div class="wrap">
-            <h1><?php echo __( 'Gutenberg Google Map API', 'gutenberg-map' ); ?></h1>
+            <h1><?php echo __( 'Gutenberg Google Map API', 'blocks-google-map' ); ?></h1>
 
             <form method="post" action="options.php">
 				<?php settings_fields( 'gutenberg-google-map-options' ); ?>
 				<?php do_settings_sections( 'gutenberg-google-map-options' ); ?>
                 <table class="form-table">
                     <tr valign="top">
-                        <th scope="row"><?php echo __( 'Google Map API', 'gutenberg-map' ); ?></th>
+                        <th scope="row"><?php echo __( 'Google Map API', 'blocks-google-map' ); ?></th>
                         <td>
                             <input type="password" name="google_api_key"
                                    value="<?php echo esc_attr( get_option( 'google_api_key' ) ); ?>"/>
                             <br/>
                             <p class="description">
-								<?php echo __( 'Please refer to this url to get the API key <code>https://developers.google.com/maps/documentation/javascript/get-api-key</code>', 'gutenberg-map' ); ?>
+								<?php echo __( 'Please refer to this url to get the API key <code>https://developers.google.com/maps/documentation/javascript/get-api-key</code>', 'blocks-google-map' ); ?>
                             </p>
                         </td>
                     </tr>
