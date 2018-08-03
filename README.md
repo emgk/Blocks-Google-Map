@@ -1,4 +1,4 @@
-# Gutenberg-Google-Maps
+# Blocks-Google-Maps
 ![npm-versopm](https://img.shields.io/npm/v/npm.svg) 
 ![WordPress](https://img.shields.io/wordpress/v/akismet.svg)
 ![PHP version from PHP-Eye](https://img.shields.io/php-eye/symfony/symfony.svg)
